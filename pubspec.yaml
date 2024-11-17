@@ -1,6 +1,6 @@
 name: admin_dashboard
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.14
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +18,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/Fonts/Montserrat-Regular.ttf
+
+flutter_assets:
+  assets_path: assets/images
+  output_path: lib/utils
+  filename: appImages.dart
+  field_prefix:
