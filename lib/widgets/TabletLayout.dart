@@ -4,8 +4,8 @@ import 'package:admin_dashboard/widgets/cutomDrawer.dart';
 import 'package:admin_dashboard/widgets/incomeSection.dart';
 import 'package:flutter/material.dart';
 
-class DesktopLayout extends StatelessWidget {
-  const DesktopLayout({super.key});
+class TabletLayout extends StatelessWidget {
+  const TabletLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,14 @@ class DesktopLayout extends StatelessWidget {
           width: 32,
         ),
         Expanded(
-          flex: 2,
-          child: AllExpensessAndQuickInvoiceSection(),
-        ),
-        SizedBox(
-          width: 24,
-        ),
-        Expanded(
+          flex: 3,
           child: SingleChildScrollView(
             child: Column(
               children: [
+                AllExpensessAndQuickInvoiceSection(),
+                SizedBox(
+                  height: 24,
+                ),
                 MyCardAndTransactionHistory(),
                 SizedBox(
                   height: 24,
@@ -36,7 +34,10 @@ class DesktopLayout extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
+        SizedBox(
+          width: 32,
+        ),
       ],
     );
   }

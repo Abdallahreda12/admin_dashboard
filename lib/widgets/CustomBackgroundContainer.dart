@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomBackGroundContainer extends StatelessWidget {
   const CustomBackGroundContainer(
-      {super.key, required this.child,  this.padding = 20});
+      {super.key, required this.child, this.padding = 20});
 
   final Widget child;
   final double padding;
@@ -13,8 +13,9 @@ class CustomBackGroundContainer extends StatelessWidget {
         padding: EdgeInsets.all(padding),
         decoration: ShapeDecoration(
           color: Colors.white,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
         child: child);
   }

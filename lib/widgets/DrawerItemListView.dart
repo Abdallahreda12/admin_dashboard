@@ -30,9 +30,11 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
         return GestureDetector(
           onTap: () {
             if (activrIndex != index) {
-              setState(() {
-                activrIndex = index;
-              });
+              setState(
+                () {
+                  activrIndex = index;
+                },
+              );
             }
           },
           child: Padding(

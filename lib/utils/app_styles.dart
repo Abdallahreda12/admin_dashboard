@@ -1,63 +1,118 @@
+import 'package:admin_dashboard/utils/sizeConfig.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
-  static const TextStyle styleReqular16 = TextStyle(
-      color: Color(0xff064061),
-      fontSize: 16,
-      fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w400);
+  static TextStyle styleReqular16(context) {
+    return TextStyle(
+        color: const Color(0xff064061),
+        fontSize: getResposiveFontSize(context, fontsize: 16),
+        fontFamily: 'Montserrat',
+        fontWeight: FontWeight.w400);
+  }
 
-  static const TextStyle styleBold16 = TextStyle(
-      color: Color(0xff4EB7F2),
-      fontSize: 16,
+  static TextStyle styleMedium16(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff064061),
+      fontSize: getResposiveFontSize(context, fontsize: 16),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w700);
+      fontWeight: FontWeight.w500,
+    );
+  }
 
-  static const TextStyle styleMedium16 = TextStyle(
-      color: Color(0xff064061),
-      fontSize: 16,
+  static TextStyle styleMedium20(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xffFFFFFF),
+      fontSize: getResposiveFontSize(context, fontsize: 20),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w500);
+      fontWeight: FontWeight.w500,
+    );
+  }
 
-  static const TextStyle styleMedium20 = TextStyle(
-      color: Color(0xffFFFFFF),
-      fontSize: 20,
+  static TextStyle styleSemiBold16(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff064061),
+      fontSize: getResposiveFontSize(context, fontsize: 16),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w500);
+      fontWeight: FontWeight.w600,
+    );
+  }
 
-  static const TextStyle styleSemiBold16 = TextStyle(
-      color: Color(0xff064061),
-      fontSize: 16,
+  static TextStyle styleSemiBold20(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff064061),
+      fontSize: getResposiveFontSize(context, fontsize: 20),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w600);
+      fontWeight: FontWeight.w600,
+    );
+  }
 
-  static const TextStyle styleSemiBold20 = TextStyle(
-      color: Color(0xff064061),
-      fontSize: 20,
+  static TextStyle styleRegular12(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xffAAAAAA),
+      fontSize: getResposiveFontSize(context, fontsize: 12),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w600);
+      fontWeight: FontWeight.w400,
+    );
+  }
 
-  static const TextStyle styleRegular12 = TextStyle(
-      color: Color(0xffAAAAAA),
-      fontSize: 12,
+  static TextStyle styleSemiBold24(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff4EB7F2),
+      fontSize: getResposiveFontSize(context, fontsize: 24),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w400);
+      fontWeight: FontWeight.w600,
+    );
+  }
 
-  static const TextStyle styleSemiBold24 = TextStyle(
-      color: Color(0xff4EB7F2),
-      fontSize: 24,
+  static TextStyle styleRegular14(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xffAAAAAA),
+      fontSize: getResposiveFontSize(context, fontsize: 14),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w600);
+      fontWeight: FontWeight.w400,
+    );
+  }
 
-  static const TextStyle styleRegular14 = TextStyle(
-      color: Color(0xffAAAAAA),
-      fontSize: 14,
+  static TextStyle styleSemiBold18(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xffFFFFFF),
+      fontSize: getResposiveFontSize(context, fontsize: 18),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w400);
+      fontWeight: FontWeight.w600,
+    );
+  }
 
-  static const TextStyle styleSemiBold18 = TextStyle(
-      color: Color(0xffFFFFFF),
-      fontSize: 18,
+  static TextStyle styleBold16(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xffFFFFFF),
+      fontSize: getResposiveFontSize(context, fontsize: 16),
       fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w600);
+      fontWeight: FontWeight.w800,
+    );
+  }
+}
+
+double getResposiveFontSize(BuildContext context, {required double fontsize}) {
+  double scaleFactor = getScaleFactor(context);
+  double resposiveFontSize = fontsize * scaleFactor;
+
+  double lowerLimit = fontsize * 0.8;
+  double upperLimit = fontsize * 1.2;
+
+  return resposiveFontSize.clamp(lowerLimit, upperLimit);
+}
+
+double getScaleFactor(BuildContext context) {
+  // var dispatcher = PlatformDispatcher.instance;
+  // var physicalWidth = dispatcher.views.first.physicalSize.width;
+  // var devicePixelRatio = dispatcher.views.first.devicePixelRatio;
+
+  double width = MediaQuery.sizeOf(context).width;
+  if (width < SizeConfig.tablet) {
+    return width / 600;
+  } else if (width < SizeConfig.desktop) {
+    return width / 1000;
+  } else {
+    return width / 1500;
+  }
 }

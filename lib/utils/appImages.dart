@@ -12,7 +12,7 @@ class Assets {
 
   /// Assets for imagesBackgroundCard
   /// assets/images/backgroundCard.svg
-  static const String imagesBackgroundCard = "assets/images/backgroundCard.svg";
+  static const String imagesBackgroundCard = "assets/images/MaskGroup.png";
 
   /// Assets for imagesCardReceive
   /// assets/images/card-receive.svg

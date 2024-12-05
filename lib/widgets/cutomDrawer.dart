@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/model/UserInfoModel.dart';
 import 'package:admin_dashboard/model/drawerItemModel.dart';
 import 'package:admin_dashboard/utils/appImages.dart';
 import 'package:admin_dashboard/widgets/DrawerItemListView.dart';
@@ -11,14 +12,17 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.sizeOf(context).width * 0.5,
       decoration: const BoxDecoration(color: Colors.white),
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: CustomListTile(
-                image: Assets.imagesProfilePhoto,
-                title: "Lekan Okeowo",
-                subTitle: "demo@gmail.com"),
+              userinfomodel: Userinfomodel(
+                  image: Assets.imagesProfilePhoto,
+                  title: "Lekan Okeowo",
+                  subtitle: "demo@gmail.com"),
+            ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(
@@ -31,15 +35,18 @@ class CustomDrawer extends StatelessWidget {
             child: Column(
               children: [
                 const Expanded(
-                    child: SizedBox(
-                  height: 20,
-                )),
+                  child: SizedBox(
+                    height: 20,
+                  ),
+                ),
                 InActiveDrawerItem(
-                    drawerItemModel: DrawerItemModel(
-                        image: Assets.imagesSetting, title: "Setting System")),
+                  drawerItemModel: DrawerItemModel(
+                      image: Assets.imagesSetting, title: "Setting System"),
+                ),
                 InActiveDrawerItem(
-                    drawerItemModel: DrawerItemModel(
-                        image: Assets.imagesLogout, title: "Logout Account")),
+                  drawerItemModel: DrawerItemModel(
+                      image: Assets.imagesLogout, title: "Logout Account"),
+                ),
                 const SizedBox(
                   height: 30,
                 )

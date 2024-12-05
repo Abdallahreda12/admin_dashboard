@@ -10,13 +10,15 @@ class AllExpenses extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CustomBackGroundContainer(
       padding: 20,
-      child: Column(children: [
-        AllExpensesHeader(),
-        SizedBox(
-          height: 16,
-        ),
-        Allexpensesitemlistview()
-      ]),
+      child: Column(
+        children: [
+          AllExpensesHeader(),
+          SizedBox(
+            height: 16,
+          ),
+          Allexpensesitemlistview()
+        ],
+      ),
     );
   }
 }

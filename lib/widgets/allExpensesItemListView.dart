@@ -30,46 +30,31 @@ class Allexpensesitemlistview extends StatefulWidget {
 }
 
 class _AllexpensesitemlistviewState extends State<Allexpensesitemlistview> {
-  int SelectedIndex = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: Allexpensesitemlistview.item.asMap().entries.map((e) {
-        int index = e.key;
-        var item = e.value;
-        if (index == 1) {
+      children: Allexpensesitemlistview.item.asMap().entries.map(
+        (e) {
+          int index = e.key;
+          var item = e.value;
           return Expanded(
             child: GestureDetector(
               onTap: () {
-                return setState(() {
-                  SelectedIndex = index;
-                });
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: AllExpensesesItem(
-                  allExpensesItemModel: item,
-                  isSelcted: SelectedIndex == index,
-                ),
-              ),
-            ),
-          );
-        } else {
-          return Expanded(
-            child: GestureDetector(
-              onTap: () {
-                return setState(() {
-                  SelectedIndex = index;
-                });
+                return setState(
+                  () {
+                    selectedIndex = index;
+                  },
+                );
               },
               child: AllExpensesesItem(
                 allExpensesItemModel: item,
-                isSelcted: SelectedIndex == index,
+                isSelcted: selectedIndex == index,
               ),
             ),
           );
-        }
-      }).toList(),
+        },
+      ).toList(),
     );
   }
 }
